@@ -215,8 +215,10 @@ function blog_searcher(){
         if ($('#blog_search').val() == ""){
             $('#blog_results').html('');
             $('#blog_results').hide();
+            $('#close_blog_search').hide();
         }
         else{
+            $('#close_blog_search').show();
             $('#blog_results').html('');
             var val = $(this).val();
             results = search_blog(val);
