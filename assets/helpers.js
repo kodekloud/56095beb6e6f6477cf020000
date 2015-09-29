@@ -45,6 +45,14 @@ function init(e){
     if ($.inArray(path, collapse_contact) >= 0){
         $('#dropdownMenu4').addClass('active_menu');
     }
+    
+    $('#close_blog_search').click(function(){
+        $('#blog_results').html('');
+        $('#blog_search').val('');
+        $('#blog_results').hide();
+    });
+    
+    
 }
 
 function show_content(){
@@ -156,8 +164,97 @@ function get_month (id){
 }
 
 function sortByKey(array, key) {
-            return array.sort(function(a, b) {
-                var x = a[key]; var y = b[key];
-                return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+    return array.sort(function(a, b) {
+        var x = a[key]; var y = b[key];
+        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+    });
+}
+
+
+
+function search_blog(keyword){
+    var blogs = getBlogList();
+    var all_posts = [];
+    $.each(blogs, function(i, val){
+        if(val.posts.length > 0){
+            var b = {};
+            b.name = val.name;
+            b.posts = [];
+            $.each(val.posts, function(k, l){
+                var publish_date = new Date(l.publish_date);
+                var today = new Date();
+                if (publish_date <= today){
+                    if(l.title.toLowerCase().indexOf(keyword) >= 0 
+                    | l.body.toLowerCase().indexOf(keyword) >= 0){
+                        b.posts.push(l);
+                    }else{
+                        $.each( l.tag, function( index2, value2 ) {
+                            if(value2.toLowerCase().indexOf(keyword) >= 0){
+                                b.posts.push(l);
+                                return false;
+                            }
+                        });
+                    }
+                }
+            });
+            if(b.posts.length >0){
+                all_posts.push(b);
+            }
+        }
+    });
+    return all_posts;
+}
+
+
+function hasClass(element, cls) {
+    return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
+}
+
+function blog_searcher(){
+    $('#blog_search').keyup(function(){
+        if ($('#blog_search').val() == ""){
+            $('#blog_results').html('');
+            $('#blog_results').hide();
+        }
+        else{
+            $('#blog_results').html('');
+            var val = $(this).val();
+            results = search_blog(val);
+            $.each(results, function(i, v){
+                var h2 = "<h2 id='open_"+ i +"' class='li_open'>(" +v.posts.length + ") " + v.name +"<i class='pull-right fa fa-chevron-down'></i></h2>";
+                var div = "";
+                $.each(v.posts, function(j,k){
+                    var date_blog = new Date((k.publish_date + " 05:00:00").replace(/-/g,"/"));
+                    k.published_on = get_month(date_blog.getMonth()) + " " + date_blog.getDate() + ", " + date_blog.getFullYear();
+                    div = div + "<div class='blog_search_results' id='collapse_open_"+ i  + "'><h4><a href='/posts/" + k.slug + "'>" + k.title + "<br /><span>Published on: " + k.published_on +"</span></a></h4></div>";
+                });
+                $('#blog_results').append(h2);
+                $('#blog_results').append(div);
+                $('#blog_results').show();
+            });
+            $('.li_open').click(function(){
+                var collapse = "#collapse_" + $(this).attr('id');
+                var collapse_js = "collapse_" + $(this).attr('id');
+                if (document.getElementById(collapse_js).classList.contains("open")){
+                    $(collapse).slideUp('fast');
+                    $(collapse).removeClass('open');
+                }
+                else{
+                    $(collapse).addClass('open');
+                    $(collapse).slideDown('fast');
+                }
             });
         }
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
