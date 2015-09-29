@@ -46,13 +46,12 @@ function init(e){
         $('#dropdownMenu4').addClass('active_menu');
     }
     
-    // $('#close_blog_search').click(function(){
-    //     $(this).hide();
-    //     $('#blog_results').html('');
-    //     $('#blog_search').val('');
-    //     $('#blog_results').hide();
-        
-    // });
+    $('#close_blog_search').click(function(){
+        $(this).hide();
+        $('#blog_results').html('');
+        $('#blog_search').val('');
+        $('#blog_results').hide();
+    });
     
     
 }
