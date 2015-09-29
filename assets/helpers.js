@@ -225,12 +225,13 @@ function blog_searcher(){
             results = search_blog(val);
             $.each(results, function(i, v){
                 var h2 = "<h2 id='open_"+ i +"' class='li_open'>(" +v.posts.length + ") " + v.name +"<i class='pull-right fa fa-chevron-down'></i></h2>";
-                var div = "";
+                var div = "<div class='blog_search_results' id='collapse_open_"+ i  + "'>";
                 $.each(v.posts, function(j,k){
                     var date_blog = new Date((k.publish_date + " 05:00:00").replace(/-/g,"/"));
                     k.published_on = get_month(date_blog.getMonth()) + " " + date_blog.getDate() + ", " + date_blog.getFullYear();
-                    div = div + "<div class='blog_search_results' id='collapse_open_"+ i  + "'><h4><a href='/posts/" + k.slug + "'>" + k.title + "<br /><span>Published on: " + k.published_on +"</span></a></h4></div>";
+                    div = div + "<h4><a href='/posts/" + k.slug + "'>" + k.title + "<br /><span>Published on: " + k.published_on +"</span></a></h4>";
                 });
+                div = div + "</div>";
                 $('#blog_results').append(h2);
                 $('#blog_results').append(div);
                 $('#blog_results').show();
