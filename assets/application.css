@@ -61,6 +61,7 @@ body{
 
 .blog_search_results a{
     display:block;
+    -webkit-tap-highlight-color: rgba(0,0,0,.5);
 }
 
 .blog_search_results h4{
@@ -1178,11 +1179,11 @@ a{
 .cat_dd{
     display: none;
 }
-.blog_search_results h4:hover, .blog_search_results h4:active, .blog_search_results h4:focus{
+.blog_search_results h4:hover{
     color: #ccc;
     color: rgba(0,0,0,.5);
-    -webkit-tap-highlight-color: rgba(0,0,0,.5);
 }
+
 
 @media(max-width:1024px){
     .popup_home{
