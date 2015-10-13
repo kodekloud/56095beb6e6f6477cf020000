@@ -64,7 +64,7 @@ body{
     display:block;
     -webkit-tap-highlight-color: rgba(0,0,0,.2);
 }
-.blog_links_container_2 a{
+#blog_links_container_2 a{
     -webkit-tap-highlight-color: rgba(0,0,0,.2);
 }
 .blog_search_results h4{
