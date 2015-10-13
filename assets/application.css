@@ -21,6 +21,10 @@ body{
     float:right;
     position:relative;
 }
+.active_cat{
+    color: #ccc;
+    color: rgba(0,0,0,.5);    
+}
 
 #blog_search{
     width:300px;
@@ -1161,6 +1165,9 @@ a{
 .promo_container:nth-child(odd) .promo_two .blog_details_tags{
     text-align:right;
 }
+#blog_links_container{
+    text-align:right;
+}
 
 @media(max-width:1024px){
     .popup_home{
@@ -1187,11 +1194,21 @@ a{
     }
 }
 @media(max-width:800px){
+    #blog_links_container{
+        text-align:left;
+    }
+    
+    .post_categories{
+        display:block;
+        margin:10px 0;
+    }
+    
     .blog_searcher_div{
         float:none;   
         margin-top:20px;
         margin-bottom:20px;
     }
+    
     #blog_search, #blog_results{
         width:100%;
     }
