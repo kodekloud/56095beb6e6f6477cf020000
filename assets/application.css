@@ -792,6 +792,10 @@ a{
     text-transform:uppercase;
     font-weight:500;
 }
+.post_categories{
+    font-size: 16px;
+    margin: 0 10px;
+}
 
 .navbar-default .navbar-nav .open .dropdown-menu>li>a{
     font-size:20px;
@@ -1082,7 +1086,7 @@ a{
 
 }
 .blog_header{
-    padding-bottom:32px;
+    padding-bottom:7px;
     margin-bottom:32px;
     border-bottom: 1px solid #ccc;
     font-weight: 300;
