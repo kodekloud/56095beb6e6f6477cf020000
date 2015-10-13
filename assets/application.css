@@ -23,7 +23,8 @@ body{
 }
 .active_cat{
     color: #ccc;
-    color: rgba(0,0,0,.5);    
+    color: rgba(0,0,0,.5); 
+    font-weight:bold;
 }
 
 #blog_search{
