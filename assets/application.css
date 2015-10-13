@@ -53,6 +53,7 @@ body{
     display: none;
     list-style: none;
     font-size: 14px;
+    z-index:99;
 }
 
 .blog_search_results{
