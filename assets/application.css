@@ -54,6 +54,10 @@ body{
     display:none;
 }
 
+.blog_search_results a{
+    display:block;
+}
+
 .blog_search_results h4{
     font-size: 14px;
     margin: 0;
