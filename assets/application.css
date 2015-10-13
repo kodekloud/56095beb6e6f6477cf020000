@@ -1178,6 +1178,10 @@ a{
 .cat_dd{
     display: none;
 }
+.blog_search_results h4:hover{
+    color: #ccc;
+    color: rgba(0,0,0,.5);
+}
 
 @media(max-width:1024px){
     .popup_home{
