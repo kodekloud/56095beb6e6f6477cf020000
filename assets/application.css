@@ -802,6 +802,11 @@ a{
     margin: 0 10px;
 }
 
+.post_categories:hover{
+    color: #ccc;
+    color: rgba(0,0,0,.5);    
+}
+
 .navbar-default .navbar-nav .open .dropdown-menu>li>a{
     font-size:20px;
 }
