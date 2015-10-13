@@ -1175,6 +1175,10 @@ a{
     text-align:right;
 }
 
+.cat_dd{
+    display: none;
+}
+
 @media(max-width:1024px){
     .popup_home{
         width:90%;
@@ -1200,8 +1204,29 @@ a{
     }
 }
 @media(max-width:800px){
+    .cat_dd{
+        display:block;
+        text-align: right;
+    }
+    .my_toggle{
+        font-size: 16px;
+        padding: 10px 0;
+        display: inline-block;
+    }
+    .cat_dd .dropdown-menu{
+        padding: 0 10px;
+        border: 1px solid #ccc;
+        border-top: 1px solid #fff;
+        margin-top: 0px;
+        width:100%;
+    }
+    .cat_dd .dropdown-menu a{
+        margin: 20px 0px;
+        text-align: right;
+        padding-right: 22px;
+    }
     #blog_links_container{
-        text-align:left;
+        display:none !important;
     }
     
     .post_categories{
