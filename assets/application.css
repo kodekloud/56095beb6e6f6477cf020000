@@ -62,7 +62,7 @@ body{
 
 .blog_search_results a{
     display:block;
-    -webkit-tap-highlight-color: rgba(0,0,0,.5);
+    -webkit-tap-highlight-color: red;
 }
 
 .blog_search_results h4{
