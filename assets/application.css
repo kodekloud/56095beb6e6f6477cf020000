@@ -1181,6 +1181,7 @@ a{
 .blog_search_results h4:hover, .blog_search_results h4:active, .blog_search_results h4:focus{
     color: #ccc;
     color: rgba(0,0,0,.5);
+    -webkit-tap-highlight-color: rgba(0,0,0,.5);
 }
 
 @media(max-width:1024px){
