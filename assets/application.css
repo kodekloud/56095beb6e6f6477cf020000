@@ -1208,6 +1208,9 @@ a{
     }
 }
 @media(max-width:800px){
+    .blog_details_heading{
+        line-height:25px;
+    }
     .cat_dd{
         display:block;
         text-align: right;
