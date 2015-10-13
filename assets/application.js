@@ -25,8 +25,6 @@ function renderBanner(banner_template,home_banner,banners){
          } else {
              item_list.push(val);
          }
-       
-        
        }
     });
 
@@ -737,6 +735,20 @@ function renderHomeHours(container, template, collection){
 }
 
 
+function renderBlogs(container, template, collection){
+    var item_list = [];
+    var item_rendered = [];
+    var template_html = $(template).html();
+    Mustache.parse(template_html);   // optional, speeds up future uses
+    $.each( collection , function( key, val ) {
+        
+        var rendered = Mustache.render(template_html,val);
+        item_rendered.push(rendered);
+    });
+    
+    $(container).show();
+    $(container).html(item_rendered.join(''));
+}
 
 
 
