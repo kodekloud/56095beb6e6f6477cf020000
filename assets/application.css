@@ -1178,7 +1178,7 @@ a{
 .cat_dd{
     display: none;
 }
-.blog_search_results h4:hover{
+.blog_search_results h4:hover, .blog_search_results h4:active, .blog_search_results h4:focus{
     color: #ccc;
     color: rgba(0,0,0,.5);
 }
