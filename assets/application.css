@@ -62,10 +62,10 @@ body{
 
 .blog_search_results a{
     display:block;
-    -webkit-tap-highlight-color: rgba(0,0,0,.3);
+    -webkit-tap-highlight-color: rgba(0,0,0,.2);
 }
 .blog_links_container_2 a{
-    -webkit-tap-highlight-color: rgba(0,0,0,.3);
+    -webkit-tap-highlight-color: rgba(0,0,0,.2);
 }
 .blog_search_results h4{
     font-size: 14px;
