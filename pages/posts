@@ -14,6 +14,16 @@
             <a href="/posts_categories/{{slug}}" class="post_categories">{{name}}</a>
         </script>
     </div>
+    <div class="dropdown cat_dd">
+        <a href="#" data-toggle="dropdown" class="dropdown-toggle my_toggle">Filter by category &nbsp;&nbsp;&nbsp; <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            <div id="blog_links_container_2">
+                <script id="blog_links_template_2" type="x-tmpl-mustache/text">
+                    <li><a href="/posts_categories/{{slug}}" class="post_categories">{{name}}</a></li>
+                </script>
+            </div>
+        </ul>
+    </div>
 </div>
     <div id="blog_container">
             <script id="blog_template" type="x-tmpl-mustache/text">
@@ -53,6 +63,7 @@
             var published_posts = posts.sortBy(function(o){ return new Date(o.publish_date) }).reverse();
             renderPosts("#blog_container", "#blog_template", published_posts);
             renderBlogs("#blog_links_container", "#blog_links_template", blogs);
+            renderBlogs("#blog_links_container_2", "#blog_links_template_2", blogs);
             show_content();
             blog_searcher();
             
