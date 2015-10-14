@@ -446,6 +446,7 @@ function renderPromoDetails(container, template, collection){
     Mustache.parse(template_html);   // optional, speeds up future uses
     item_list.push(collection);
     $.each( item_list , function( key, val ) {
+        console.log(val)
         if ((val.promo_image_url).indexOf('missing.png') > -1){
             if (val.promotionable_type == "Store") {
                 var store_details = getStoreDetailsByID(val.promotionable_id);
@@ -481,12 +482,12 @@ function renderPromoDetails(container, template, collection){
            val.css = "style=cursor:default;";
            val.noLink = "return false";
         }
-        console.log(val.url)
        
-        start = new Date (val.start_date);
-        end = new Date (val.end_date);
-        start.setDate(start.getDate()+1);
-        end.setDate(end.getDate()+1);
+        start = new Date (val.start_date + "T04:00:00Z");
+        end = new Date (val.end_date + "T04:00:00Z");
+        
+        // start.setDate(start.getDate()+1);
+        // end.setDate(end.getDate()+1);
         if (start.toDateString() == end.toDateString()) {
             val.dates = (get_month(start.getMonth()))+" "+(start.getDate());    
         } else {
