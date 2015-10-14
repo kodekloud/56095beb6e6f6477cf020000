@@ -741,8 +741,9 @@ function renderBlogs(container, template, collection){
     var template_html = $(template).html();
     Mustache.parse(template_html);   // optional, speeds up future uses
     $.each( collection , function( key, val ) {
-        
-        var rendered = Mustache.render(template_html,val);
+        if(val.posts.length > 0){
+            var rendered = Mustache.render(template_html,val);
+        }
         item_rendered.push(rendered);
     });
     
