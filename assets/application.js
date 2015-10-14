@@ -147,8 +147,12 @@ function renderStoreExtras(container, template, type, ids){
     $.each( collection , function( key, val ) {
         start = new Date (val.start_date);
         end = new Date (val.end_date);
-        start.setDate(start.getDate()+1);
-        end.setDate(end.getDate()+1);
+        //specifying the timezone so date wont go back 1.day
+        start = new Date (val.start_date + "T04:00:00Z");
+        end = new Date (val.end_date + "T04:00:00Z");
+        
+        // start.setDate(start.getDate()+1);
+        // end.setDate(end.getDate()+1);
         if (start.toDateString() == end.toDateString()) {
             val.dates = (get_month(start.getMonth()))+" "+(start.getDate());    
         } else {
@@ -482,7 +486,7 @@ function renderPromoDetails(container, template, collection){
            val.css = "style=cursor:default;";
            val.noLink = "return false";
         }
-       
+        //specifying the timezone so date wont go back 1.day
         start = new Date (val.start_date + "T04:00:00Z");
         end = new Date (val.end_date + "T04:00:00Z");
         
@@ -532,10 +536,12 @@ function renderEventDetails(container, template, collection){
             val.store_name = "Midtown Plaza";
             
         }
-        start = new Date (val.start_date);
-        end = new Date (val.end_date);
-        start.setDate(start.getDate()+1);
-        end.setDate(end.getDate()+1);
+        //specifying the timezone so date wont go back 1.day
+        start = new Date (val.start_date + "T04:00:00Z");
+        end = new Date (val.end_date + "T04:00:00Z");
+        
+        // start.setDate(start.getDate()+1);
+        // end.setDate(end.getDate()+1);
         if (start.toDateString() == end.toDateString()) {
             val.dates = (get_month(start.getMonth()))+" "+(start.getDate());    
         } else {
